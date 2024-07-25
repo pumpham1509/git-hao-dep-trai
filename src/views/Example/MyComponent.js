@@ -28,12 +28,21 @@ class MyComponent extends React.Component {
 			arrayFood: [...this.state.arrayFood, data],
 		});
 	};
+	deleteElement = (a) => {
+		console.log(a);
+		let food = this.state.arrayFood;
+		food = food.filter((value) => value.id !== a);
+		this.setState({ arrayFood: food });
+	};
 	render() {
 		console.log("re-render");
 		return (
 			<>
 				<AddComponent addData={this.addData} />
-				<ChildComponent arrayFood={this.state.arrayFood} />
+				<ChildComponent
+					arrayFood={this.state.arrayFood}
+					deleteElement={this.deleteElement}
+				/>
 			</>
 		);
 	}

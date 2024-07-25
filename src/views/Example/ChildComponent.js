@@ -7,6 +7,9 @@ class ChildComponent extends React.Component {
 	buttonToggle() {
 		this.setState({ buttonToggle: !this.state.buttonToggle });
 	}
+	handleOnlickDelete(value) {
+		this.props.deleteElement(value);
+	}
 	render() {
 		console.log("check props:", this.props);
 		console.log(this.state.buttonToggle);
@@ -23,7 +26,14 @@ class ChildComponent extends React.Component {
 				>
 					{arrayFood.map((value) => (
 						<li key={value.id}>
-							{value.nameFood} - {value.price} <span>$</span>
+							{value.nameFood} - {value.price} <span>$</span>{" "}
+							<span
+								onClick={() =>
+									this.handleOnlickDelete(value.id)
+								}
+							>
+								X
+							</span>
 						</li>
 					))}
 				</ul>
