@@ -20,6 +20,10 @@ class AddComponent extends React.Component {
 			id: Math.floor(Math.random() * 1000),
 			title: value,
 		};
+		// if (value.key ===13){
+		// 	console.log(value)
+
+		//  }
 		this.props.handleAddTodo(todo);
 		this.setState({
 			valueAdd: "",

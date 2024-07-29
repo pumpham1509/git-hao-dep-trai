@@ -27,6 +27,18 @@ class ListTodo extends React.Component {
 		});
 		toast.success("Add Todo Success!");
 	};
+	handleUpdateTodo = (newTodo) => {
+		console.log("Đã nhận được ", newTodo);
+		let newArrayListTodo = [...this.state.listTodos];
+		let todoIndex = newArrayListTodo.findIndex(
+			(value) => value.id === newTodo.id
+		);
+		newArrayListTodo[todoIndex].title = newTodo.title;
+		this.setState({
+			listTodos: newArrayListTodo,
+		});
+		toast.success("Update Todo Success!");
+	};
 	handleClickDelete = (todo) => {
 		let currentListTodos = this.state.listTodos.filter(
 			(value) => value.id !== todo.id
@@ -36,6 +48,7 @@ class ListTodo extends React.Component {
 		});
 		toast.success("Delete Todo Success!");
 	};
+
 	render() {
 		let { listTodos } = this.state;
 		return (
@@ -44,6 +57,7 @@ class ListTodo extends React.Component {
 					<AddComponent handleAddTodo={this.handleAddTodo} />
 					<ListChildTodo
 						listTodos={listTodos}
+						handleUpdateTodo={this.handleUpdateTodo}
 						handleClickDelete={this.handleClickDelete}
 					/>
 				</div>

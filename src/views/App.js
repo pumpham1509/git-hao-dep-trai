@@ -2,8 +2,12 @@ import logo from "./logo.svg";
 import "./App.scss";
 import React from "react";
 // import MyComponent from "./Example/MyComponent";
-import ListTodo from "./TodoApp/ListTodo";
-import { ToastContainer, toast } from "react-toastify";
+// import ListTodo from "./TodoApp/ListTodo";
+import Nav from "./Nav/Nav";
+import Home from "./Example/Home";
+
+import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 class App extends React.Component {
@@ -11,9 +15,11 @@ class App extends React.Component {
 		return (
 			<div className="App">
 				<header className="App-header">
+					<Nav />
 					<img src={logo} className="App-logo" alt="logo" />
-					<ListTodo />
+					{/* <ListTodo /> */}
 					{/* <MyComponent /> */}
+					<Home />
 				</header>
 				<ToastContainer
 					position="top-right"
